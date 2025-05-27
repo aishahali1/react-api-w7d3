@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function Home() {
   const [item, setItem] = useState([]);
@@ -14,7 +16,8 @@ function Home() {
       });
   }, []);
 
-  return (
+  return (<>
+  <Navbar></Navbar>
     <div className='flex flex-row flex-wrap justify-center gap-4'>
     {item.map((info) => (<>
     <div key={info.id} className='shadow-lg rounded-2xl flex flex-col justify-center items-center w-100 p-4'>
@@ -26,6 +29,8 @@ function Home() {
       </>
       ))}
     </div>
+    <Footer></Footer>
+    </>
   );
 }
 
